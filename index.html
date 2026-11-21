@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masmoudi Store | Boutique</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Masmoudi Store">
+    </a>
+    <button type="button" id="burger" aria-label="Menu">☰</button>
+    <nav id="menu-principal">
+      <ul>
+        <li><a href="index.html">Boutique</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Bannière sous le menu -->
+  <div class="banniere">
+    <img src="images/banniere.png" width="1600" height="533"
+         alt="Deux hommes en chemise de lin et chapeau sur un yacht au coucher du soleil : La classe au meilleur prix">
+  </div>
+
+  <main>
+    <h1>Notre boutique</h1>
+
+    <!-- Les produits sont ajoutés ici par le JavaScript -->
+    <section id="grille-produits"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Masmoudi Store. Tous droits réservés.</p>
+  </footer>
+
+  <script src="js/produits.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
