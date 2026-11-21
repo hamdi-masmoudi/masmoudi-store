@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masmoudi Store | Commande</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="logo">
+      <img src="../images/logo.png" alt="Masmoudi Store">
+    </a>
+    <button type="button" id="burger" aria-label="Menu">☰</button>
+    <nav id="menu-principal">
+      <ul>
+        <li><a href="../index.html">Boutique</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <a href="../index.html" class="retour">← Retour à la boutique</a>
+    <h1>Commander un produit</h1>
+
+    <!-- Le produit choisi est ajouté ici par le JavaScript -->
+    <section id="produit-detail" class="produit-detail"></section>
+
+    <!-- novalidate : c'est notre JavaScript qui vérifie le formulaire -->
+    <form id="form-commande" novalidate>
+      <h2>Vos informations</h2>
+
+      <div class="champ">
+        <label for="nom">Nom et prénom</label>
+        <input type="text" id="nom" name="nom">
+        <span class="erreur" id="erreur-nom"></span>
+      </div>
+
+      <div class="champ">
+        <label for="telephone">Téléphone (8 chiffres)</label>
+        <input type="tel" id="telephone" name="telephone" maxlength="8">
+        <span class="erreur" id="erreur-telephone"></span>
+      </div>
+
+      <div class="champ">
+        <label for="adresse">Adresse de livraison (ville, rue)</label>
+        <input type="text" id="adresse" name="adresse">
+        <span class="erreur" id="erreur-adresse"></span>
+      </div>
+
+      <div class="champ">
+        <label for="quantite">Quantité (1 à 10)</label>
+        <input type="number" id="quantite" name="quantite" value="1" min="1" max="10">
+        <span class="erreur" id="erreur-quantite"></span>
+      </div>
+
+      <p id="total-commande" class="total"></p>
+
+      <button type="submit" class="bouton">Confirmer la commande</button>
+      <p id="succes"></p>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Masmoudi Store. Tous droits réservés.</p>
+  </footer>
+
+  <script src="../js/produits.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
