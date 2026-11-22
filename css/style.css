@@ -1,0 +1,305 @@
+/* ===== Variables (les couleurs et tailles réutilisées partout) ===== */
+:root {
+  --fond: #000000;
+  --surface: #000000;
+  --bordure: #444444;
+  --accent: #ff4545;
+  --texte: #ffffff;
+  --texte-sur-accent: #1e1c1c;
+  --rayon: 8px;
+  --espace: 1rem;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box; /* padding et bordure inclus dans la largeur */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texte);
+  background-color: var(--fond);
+}
+
+img {
+  max-width: 100%;   /* l'image ne dépasse jamais son conteneur */
+  display: block;
+}
+
+a {
+  color: var(--texte);
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  margin-bottom: var(--espace);
+}
+
+main {
+  padding: var(--espace);
+  min-height: 70vh;
+}
+
+/* Contour visible quand on navigue au clavier (touche Tab) */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== Header et menu (mobile d'abord) ===== */
+header {
+  display: flex;
+  flex-wrap: wrap;                  /* le menu passe sous le logo */
+  justify-content: center;          /* logo au centre */
+  align-items: center;
+  position: relative;               /* pour placer le burger à gauche */
+  padding: var(--espace);
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--bordure);
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
+}
+
+#burger {
+  position: absolute;   /* sort du flux : le logo reste centré */
+  left: var(--espace);
+  top: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--texte);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Sur mobile, le menu est caché ... */
+nav {
+  display: none;
+  width: 100%;
+}
+
+/* ... et le JavaScript ajoute la classe "ouvert" pour l'afficher */
+nav.ouvert {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav a {
+  display: block;
+  padding: 0.75rem 0;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ===== Bannière (sous le menu) ===== */
+.banniere img {
+  width: 100%;
+  height: auto;
+  min-height: 160px;    /* sur petit écran, on garde une hauteur minimum */
+  max-height: 400px;    /* sur grand écran, on limite la hauteur */
+  object-fit: cover;    /* l'image remplit la zone, le centre reste visible */
+  object-position: center;
+}
+
+/* ===== Bouton principal ===== */
+.bouton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: var(--texte-sur-accent);
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--rayon);
+  cursor: pointer;
+}
+
+.bouton:hover {
+  opacity: 0.85;
+}
+
+/* ===== Grille de produits (mobile : 1 colonne) ===== */
+#grille-produits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espace);
+}
+
+.produit-lien {
+  display: block;
+}
+
+.produit-lien:hover img {
+  opacity: 0.85;
+}
+
+.produit img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;    /* l'image remplit la zone sans être déformée */
+  border-radius: var(--rayon);
+}
+
+.produit-nom {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.produit-prix {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ===== Page produit (commande) ===== */
+.retour {
+  display: inline-block;
+  margin-bottom: var(--espace);
+  color: var(--accent);
+}
+
+.produit-detail {
+  margin-bottom: 2rem;
+}
+
+.produit-detail img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--rayon);
+  margin-bottom: var(--espace);
+}
+
+.detail-prix {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.total {
+  margin-bottom: var(--espace);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ===== Formulaire de contact ===== */
+#form-contact,
+#form-commande {
+  max-width: 600px;
+}
+
+.champ {
+  margin-bottom: var(--espace);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: var(--surface);
+  color: var(--texte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.compteur {
+  display: block;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.erreur {
+  display: block;
+  min-height: 1.4rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+#succes {
+  margin-top: var(--espace);
+  color: var(--accent);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: var(--espace);
+  margin-top: 2rem;
+  background-color: var(--surface);
+  border-top: 1px solid var(--bordure);
+}
+
+/* ===== Tablette (à partir de 768px) ===== */
+@media (min-width: 768px) {
+  /* 2 colonnes de produits */
+  #grille-produits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* page produit : image à gauche, infos à droite */
+  .produit-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .produit-detail img {
+    width: 350px;
+    height: 450px;
+    margin-bottom: 0;
+  }
+
+  /* plus de burger : le menu est toujours visible, centré sous le logo */
+  #burger {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+/* ===== Ordinateur (à partir de 1200px) ===== */
+@media (min-width: 1200px) {
+  /* le contenu est centré et limité à 1200px */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* 4 colonnes de produits */
+  #grille-produits {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
