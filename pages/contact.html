@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masmoudi Store | Contact</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="logo">
+      <img src="../images/logo.png" alt="Masmoudi Store">
+    </a>
+    <button type="button" id="burger" aria-label="Menu">☰</button>
+    <nav id="menu-principal">
+      <ul>
+        <li><a href="../index.html">Boutique</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contactez-nous</h1>
+
+    <!-- novalidate : on désactive la vérification du navigateur, c'est notre JavaScript qui vérifie -->
+    <form id="form-contact" novalidate>
+      <div class="champ">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom">
+        <span class="erreur" id="erreur-nom"></span>
+      </div>
+
+      <div class="champ">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email">
+        <span class="erreur" id="erreur-email"></span>
+      </div>
+
+      <div class="champ">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" maxlength="300"></textarea>
+        <span class="compteur" id="compteur">0 / 300 caractères</span>
+        <span class="erreur" id="erreur-message"></span>
+      </div>
+
+      <button type="submit" class="bouton">Envoyer</button>
+      <p id="succes"></p>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Masmoudi Store. Tous droits réservés.</p>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
